@@ -79,24 +79,26 @@ Rather than relying on static flat files, the foundational dataset was architect
 
 ## Core DAX Formulations
 
--- Logo Churn Rate %
+- Logo Churn Rate %
+```
 Logo Churn Rate % = 
 VAR ChurnedAccounts = CALCULATE(COUNTROWS(vw_customer_retention_summary), vw_customer_retention_summary[status] = "Cancelled")
 VAR TotalAccounts = COUNTROWS(vw_customer_retention_summary)
 RETURN
 DIVIDE(ChurnedAccounts, TotalAccounts, 0)
+```
 
-
--- Support SLA Breach Rate %
+- Support SLA Breach Rate %
+```
 SLA Breach Rate % = 
 VAR BreachedTickets = CALCULATE(COUNTROWS(vw_support_ticket_details), vw_support_ticket_details[resolution_time_hrs] > 24.0)
 VAR TotalTickets = COUNTROWS(vw_support_ticket_details)
 RETURN
 DIVIDE(BreachedTickets, TotalTickets, 0)
+```
 
 
-
--- Project Structure
+- Project Structure
 ```
 ├── assets/
 │   ├── Page1_Executive_Summary.png
@@ -107,3 +109,4 @@ DIVIDE(BreachedTickets, TotalTickets, 0)
 ├── sql/
 │   └── 04_churn_and_retention_diagnostics.sql
 └── README.md
+```
