@@ -79,7 +79,6 @@ Rather than relying on static flat files, the foundational dataset was architect
 
 ## Core DAX Formulations
 
-```dax
 -- Logo Churn Rate %
 Logo Churn Rate % = 
 VAR ChurnedAccounts = CALCULATE(COUNTROWS(vw_customer_retention_summary), vw_customer_retention_summary[status] = "Cancelled")
@@ -98,6 +97,7 @@ DIVIDE(BreachedTickets, TotalTickets, 0)
 
 
 -- Project Structure
+```
 ├── assets/
 │   ├── Page1_Executive_Summary.png
 │   ├── Page2_Support_Diagnostics.png
